@@ -35,7 +35,17 @@ def open_chatroom(chatroom_name):
 
 def make_msg(data):
     msg = '이름\t점수\t출결\n'
+    rows = []
     for key, value in data.items():
-        row = key + '\t' + str(value['점수']) + '\t' + str(value['출결현황']) + '\n'
-        msg += row
+        rows.append(key + '\t' + str(value['점수']) + '\t' + str(value['출결현황']))
+    msg += '\n'.join(rows)
+    return msg
+
+def make_settlement_msg(data):
+    msg = '이름\t점수\t보증금\t벌금\t잔금\n'
+    rows = []
+    sorted_data = sorted(data.items(), key=lambda x: x[1]['점수'], reverse=True)
+    for key, value in sorted_data:
+        rows.append(key + '\t' + str(value['점수']) + '\t' + str(value['잔금']) + '\t' + str(value['벌금']) + '\t' + str(value['잔금']-value['벌금']))
+    msg += '\n'.join(rows)
     return msg

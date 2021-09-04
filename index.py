@@ -19,7 +19,6 @@ def main():
 
     write_score_file(data)
     msg = make_msg(data)
-    print(msg)
     
     open_chatroom(chat_name)
     kakao_sendtext(chat_name, msg)
