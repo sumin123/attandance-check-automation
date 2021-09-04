@@ -12,7 +12,8 @@ def update_score(data, content):
 
 def update_state(data, words, score, history, fine):
     for name in words[2:]:
-        data.setdefault(name, {'점수': 0, '출결현황':'', '잔금': -1, '벌금':0 })
+        if name == '':
+            return 0
         data[name]['점수'] += score
         data[name]['출결현황'] += history
         data[name]['벌금'] += fine

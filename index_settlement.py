@@ -2,6 +2,8 @@ import json
 import os
 from file_IO_module import *
 from send_msg import *
+import shutil
+import time
 
 def main():
     chat_name = '이수민'
@@ -14,6 +16,9 @@ def main():
         new_score[key]['잔금'] = scores[key]['잔금'] - scores[key]['벌금']
     
     msg = make_settlement_msg(scores)
+    new_file_name = 'score-' + time.strftime('%Y-%m-%d', time.localtime(time.time()))
+    shutil.move('score.json', 'history/' + new_file_name + '.json')
+
 
     write_score_file(new_score)
 
