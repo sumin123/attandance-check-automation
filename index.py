@@ -5,7 +5,7 @@ from file_IO_module import *
 from update_attandance import *
 
 def main():
-    chat_name = '이수민'
+    chat_name = '출석스터디'
     
     all_chat = copy_chatroom(chat_name)
     splited_chat = all_chat.split('\r\n')

@@ -1,0 +1,1 @@
+"C:\Users\leesumin\AppData\Local\Programs\Python\Python39\python.exe" "C:\Users\leesumin\attandance-check-automation\index.py"
